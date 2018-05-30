@@ -1,4 +1,8 @@
      
+
+     <?php
+        include 'header.php';
+     ?>
     <form action="./insert_user.php" method="post">
     <div>
     <label for="username">Όνομα Χρήστη</label>

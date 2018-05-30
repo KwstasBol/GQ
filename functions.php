@@ -21,7 +21,7 @@ function createDatabaseConnection(){
     $servername = "localhost";
     $username = "root";
     $password = "root";
-    $dbname = "geoquest";
+    $dbname = "gq";
 
 
     // Create connection
@@ -47,6 +47,21 @@ function userExists($una){
 
 
 }
+
+function countryExists($cap){
+    $link=createDatabaseConnection();
+    $sql = "SELECT DISTINCT capital from countries where capital='$cap' ";
+    $result=mysqli_query($link, $sql);
+    $data = mysqli_fetch_array($result,MYSQLI_NUM);
+    if ($data[0] != 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
+
+}
 function validateLogin($una,$pass){
     $link=createDatabaseConnection();
     $sql = "SELECT * from Users where username='$una' ";
@@ -63,4 +78,6 @@ function validateLogin($una,$pass){
  
 
 }
+
 ?>
+

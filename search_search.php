@@ -3,7 +3,7 @@
 include('./functions.php');
 $link=createDatabaseConnection();
 $output='';
-//$sql = "SELECT name FROM searches  WHERE name LIKE '%".$_POST["search"]."%'";
+$sql = "SELECT DISTINCT name FROM searches  WHERE name LIKE '".$_POST["search"]."%'";
 //na arxizei mono
 $result=mysqli_query($link,$sql);
 $allRows=array();
