@@ -154,6 +154,11 @@ if(isset($_SESSION['login_user'])) { ?>
                 var ajax_hdi=data2.find('th:contains("HDI") ').next().text().replace(/<img[^>]*>/g,"").split('[');
 
                 var ajax_area=data2.find('tr:contains("Total") td   ').text().split('(');
+                console.log('COOORDDI'+data2.find('.geo').html());
+                var coordinates=data2.find('.geo').html().split(';')
+                var latitude=coordinates[0];
+                var longitude=coordinates[1];
+                console.log(latitude+'-'+longitude);
                 
                
                
@@ -164,20 +169,24 @@ if(isset($_SESSION['login_user'])) { ?>
                 console.log('CAPITAL '+ajax_capital);
                 console.log('AREA '+ajax_area[0].substr(0,7)  );
 
+                $country_name=data.parse.title;
                 $country_flag=ajax_image;
                 $country_capital=ajax_capital;
-                $country_area=ajax_area[0].substr(0,7);
-                $country_population=ajax_population[0];
-                $country_gdp=ajax_gdp[0].substr(1,10);
+                $country_area=parseFloat(ajax_area[0].substr(0,7).replace(",","."));
+                $country_population=ajax_population[0].replace(/,/g, "");
+                $country_gdp=ajax_gdp[0].substr(1,10).replace(/,/g, "");
                 $country_hdi=ajax_hdi[0].substr(1,5);
-                $country_gini=ajax_gini[0];
+                $country_gini=parseFloat(ajax_gini[0]);
+                $latitude=latitude;
+                $longitude=longitude;
                 console.log($country_gini);
+                console.log(data.parse.title);
              
 
                 //console.log($country_data);
 
                 $('#td_flag').html('<img src='+ajax_image+'>');
-                $('#td_name_geo').html(ajax_capital);
+                $('#td_name_geo').html(ajax_capital+' - Lat:'+latitude+',Long:'+longitude);
                 $('#td_length').html(ajax_area[0]);
                 $('#td_population').html(ajax_population[0]);
                 $('#td_GDP').html(ajax_gdp[0]);
@@ -223,6 +232,9 @@ if(isset($_SESSION['login_user'])) { ?>
                     url:'./insert_country.php',
                     method:'POST',
                     data:{
+                    name:$country_name,
+                    latitude:$latitude,
+                    longitude:$longitude,
                     flag:$country_flag,
                     capital:$country_capital,
                     area:$country_area,
@@ -255,7 +267,7 @@ if(isset($_SESSION['login_user'])) { ?>
  
 </html>
     
-  <?php } ?>
+  <?php }  ?>
 
 
 
