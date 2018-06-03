@@ -14,7 +14,7 @@ $allRows=array();
 if(isset($_SESSION['login_user'])){
     echo ('
     
-    <form action="./pie_chart.php" method="POST">
+    <form  action="./pie_chart.php" method="POST">
     <h4>Choose countries</h4>
     <div>
     ');
@@ -33,9 +33,9 @@ if(isset($_SESSION['login_user'])){
         $output.='
         </div> <br>
 
-        <div>
+        <div class="uk-width-medium">
             <h4>Choose Search Criteria</h4>
-    <select name="data_categories">
+    <select class="uk-select"  name="data_categories">
       <option value="area">Area</option>
       <option value="population">Population</option>
       <option value="gdp">GDP</option>
@@ -47,9 +47,9 @@ if(isset($_SESSION['login_user'])){
         <div>
             <br>
         </div>
-    <div>
+    <div class="uk-width-medium">
     <h4>Choose Chart</h4>
-    <select name="chart_types" id="chart_types" >
+    <select class ="uk-select" name="chart_types" id="chart_types" >
       <option value="pie_chart">Pie Chart</option>
       <option value="bar_chart">Bar Chart</option>
       <option value="column_chart">Column Chart</option>
@@ -58,7 +58,7 @@ if(isset($_SESSION['login_user'])){
     <br>
     
    
-    <button id="show">Show</button>
+    <button class="uk-button-Primary uk-button-small" id="show">Show</button>
     </form>
     
     </div>';

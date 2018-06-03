@@ -1,6 +1,5 @@
-
 <?php
-session_start();
+//session_start();
 include('./functions.php');
 $link=createDatabaseConnection();
 $uname = mysqli_real_escape_string($link, $_REQUEST['username']);
@@ -16,8 +15,5 @@ if(validateLogin($uname,$pass)==true){
 else{
     header("Location: http://localhost/GeogQuest/login.php"); /* Redirect browser */
     exit();
-
 }
-
-
 ?>

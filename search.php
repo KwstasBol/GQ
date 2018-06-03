@@ -30,14 +30,20 @@ if(isset($_SESSION['login_user'])) { ?>
 </head>
 <body>
 <h1>Search for countries...</h1>
-    <input id="search_input" name="search_name" type="text">
-    <button name="subm" id=search_button>Αναζήτηση</button>
+
+    <div class="uk-width-medium">
+    <input  class="uk-input-large" id="search_input" name="search_name" type="text">
+    </div>
+   
+
+    
+    <button class="uk-button-Primary uk-button-small" name="subm" id=search_button>Αναζήτηση</button>
     <div id="result"> 
     
     
     </div>
 
-    <table name="table" style="display:none"  id="table_id" border="1">
+    <table class="uk-table uk-table-striped uk-table-small" name="table" style="display:none"  id="table_id" border="1">
         <tr>
         <td>
           Σημαία (Εικόνα)
@@ -96,8 +102,8 @@ if(isset($_SESSION['login_user'])) { ?>
         </tr>
 
     </table>
-    <button id="add_button" style="display:none">Καταχώρηση</button>
-    <button id="add_new_country" style="display:none">Νέα Χώρα</button>
+    <button class="uk-button-Primary uk-button-small" id="add_button" style="display:none">Καταχώρηση</button>
+    <button class="uk-button-Primary uk-button-small" id="add_new_country" style="display:none">Νέα Χώρα</button>
        
     <div id="kati"></div>
 </body>
@@ -186,7 +192,7 @@ if(isset($_SESSION['login_user'])) { ?>
                 //console.log($country_data);
 
                 $('#td_flag').html('<img src='+ajax_image+'>');
-                $('#td_name_geo').html(ajax_capital+' - Lat:'+latitude+',Long:'+longitude);
+                $('#td_name_geo').html(ajax_capital+'- Lat:'+latitude+',Long:'+longitude);
                 $('#td_length').html(ajax_area[0]);
                 $('#td_population').html(ajax_population[0]);
                 $('#td_GDP').html(ajax_gdp[0]);

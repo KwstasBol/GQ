@@ -35,7 +35,7 @@ function createDatabaseConnection(){
 
 function userExists($una){
     $link=createDatabaseConnection();
-    $sql = "SELECT username from Users where username='$una' ";
+    $sql = "SELECT username from users where username='$una' ";
     $result=mysqli_query($link, $sql);
     $data = mysqli_fetch_array($result,MYSQLI_NUM);
     if ($data[0] > 1) {
@@ -50,10 +50,10 @@ function userExists($una){
 
 function countryExists($cap){
     $link=createDatabaseConnection();
-    $sql = "SELECT DISTINCT capital from countries where capital='$cap' ";
+    $sql = "SELECT   name from countries where name='$cap' ";
     $result=mysqli_query($link, $sql);
     $data = mysqli_fetch_array($result,MYSQLI_NUM);
-    if ($data[0] != 0) {
+    if ($data[0] > 1) {
         return true;
     }
     else {
@@ -64,7 +64,7 @@ function countryExists($cap){
 }
 function validateLogin($una,$pass){
     $link=createDatabaseConnection();
-    $sql = "SELECT * from Users where username='$una' ";
+    $sql = "SELECT * from users where username='$una' ";
     $result=mysqli_query($link, $sql);
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
@@ -72,7 +72,7 @@ function validateLogin($una,$pass){
             return true;
         }
         else{
-            return falase;
+            return false;
         }
     }
  

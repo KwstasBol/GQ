@@ -3,21 +3,28 @@
      <?php
         include 'header.php';
      ?>
-    <form action="./insert_user.php" method="post">
+     <div class=".uk-text-small">
+
+        <h1 >Create Your Account</h1>
+        </div>
+    <form class="uk-form-width-Medium" action="./insert_user.php" method="post">
     <div>
-    <label for="username">Όνομα Χρήστη</label>
-    <input type="text" name="username">
+    <label for="username">Username</label>
+    <input class="uk-input" type="text" name="username">
     </div>
     <div>
     <label for="email">E-mail</label>
-    <input type="email" name="email">
+    <input class="uk-input" type="email" name="email">
     </div>
     <div>
-    <label for="password">Κωδικός</label>
-    <input type="password" name="password">
+    <label for="password">Password</label>
+    <input class="uk-input" type="password" name="password">
        </div>
     <div>
-    <input type="submit"> 
+    <br>
+
+    <input class="uk-button-Primary uk-button-small" type="submit"> 
+    </br>
     </div>
  
   

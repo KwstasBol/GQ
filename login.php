@@ -6,16 +6,26 @@
 
     include 'header.php';
 ?>
-<form action="./login_user.php" method="post">
+<div class=".uk-text-small">
+
+<h1 >Login to GeogQuest</h1>
+</div>
+<form class="uk-form-width-Medium" action="./login_user.php" method="post">
+
     <div>
-    <label for="username">Όνομα Χρήστη</label>
-    <input type="text" name="username">
+    <label class=".uk-label-success"	 for="username">Username</label>
+    <input class="uk-input" type="text" name="username">
     </div>
-    <label for="password">Κωδικός</label>
-    <input type="password" name="password">
+    <label for="password">Password</label>
+    <input class="uk-input" type="password" name="password">
        </div>
+       
     <div>
-    <input type="submit"> 
+    <br>
+
+    <input class="uk-button-Primary uk-button-small" type="submit"> 
+    </br>
+
     </div>
  
   
